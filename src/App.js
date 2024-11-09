@@ -1,5 +1,17 @@
+import { About } from "./sections/About";
+import { Advices } from "./sections/Advices";
+import { Hero } from "./sections/Hero";
+import { Limitations } from "./sections/Limitationes";
+
 function App() {
-  return <p className="font-normal">Whereas recognition</p>;
+  return (
+    <main className="lg:container lg:mx-auto lg:px-6">
+      <Hero />
+      <About />
+      <Advices />
+      <Limitations />
+    </main>
+  );
 }
 
 export default App;
