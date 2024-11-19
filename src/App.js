@@ -6,10 +6,14 @@ import { Limitations } from "./sections/Limitationes";
 function App() {
   return (
     <main className="lg:px-6">
-      <Hero />
+      <div className="lg:max-w-[1392px] mx-auto relative h-[737px]">
+        <div className="bg-gradient-to-br from-[#D6E6FE]/0 to-[#D6FCFE]/100 rounded-b-[35px] h-[640px] lg:h-auto lg:w-[978px] absolute top-0 left-0 right-0 lg:bottom-0"></div>
+        {/* <Hero /> */}
+      </div>
+
       <About />
 
-      <div className="bg-gradient-to-br from-[#D6E6FE]/0 to-[#D6E6FE]/100 lg:max-w-[1392px] mx-auto lg:rounded-[35px]">
+      <div className="bg-gradient-to-br from-[#D6FCFE]/0 to-[#D6E6FE]/100 lg:max-w-[1392px] mx-auto lg:rounded-[35px]">
         <Advices />
       </div>
 
