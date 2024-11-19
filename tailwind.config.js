@@ -6,7 +6,7 @@ module.exports = {
       center: true,
     },
     extend: {
-      color: {
+      colors: {
         blue: "#345FF6C",
         "electric-blue": "#5E6E85",
         gunmetal: "#253347",

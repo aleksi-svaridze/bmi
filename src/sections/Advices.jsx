@@ -10,7 +10,7 @@ export const Advices = () => {
     {
       id: 1,
       title: "Healthy eating",
-      iconBg: "#F21E84",
+      iconBg: "rgba(242, 30, 132, .15)",
       Icon: Food,
       description:
         "Healthy eating promotes weight control, disease prevention, better digestion, immunity, mental clarity, and mood.",
@@ -18,7 +18,7 @@ export const Advices = () => {
     {
       id: 2,
       title: "Regular exercise",
-      iconBg: "#F69134",
+      iconBg: "rgba(246, 145, 52, .15)",
       Icon: Exercise,
       description:
         "Exercise improves fitness, aids weight control, elevates mood, and reduces disease risk, fostering wellness and longevity.",
@@ -26,14 +26,14 @@ export const Advices = () => {
     {
       id: 3,
       title: "Adequate sleep",
-      iconBg: "#22C1C1",
+      iconBg: "rgba(34, 193, 193, .15)",
       Icon: Moon,
       description:
         "Sleep enhances mental clarity, emotional stability, and physical wellness, promoting overall restoration and rejuvenation.",
     },
   ]);
   return (
-    <div>
+    <div className="flex flex-col lg:flex-row gap-y-10 lg:gap-y-0 lg:gap-x-6 my-[76px] py-14 md:py-[60px] lg:py-[72px] px-5 md:px-10 container lg:max-w-[1159px]">
       {data.map((item) => (
         <AdviceCard
           key={item.id}

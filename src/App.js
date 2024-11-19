@@ -5,10 +5,14 @@ import { Limitations } from "./sections/Limitationes";
 
 function App() {
   return (
-    <main className="lg:container lg:px-6">
+    <main className="lg:px-6">
       <Hero />
       <About />
-      <Advices />
+
+      <div className="bg-gradient-to-br from-[#D6E6FE]/0 to-[#D6E6FE]/100 lg:max-w-[1392px] mx-auto lg:rounded-[35px]">
+        <Advices />
+      </div>
+
       <Limitations />
     </main>
   );
