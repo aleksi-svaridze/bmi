@@ -5,7 +5,7 @@ import { Limitations } from "./sections/Limitationes";
 
 function App() {
   return (
-    <main className="lg:container lg:mx-auto lg:px-6">
+    <main className="lg:container lg:px-6">
       <Hero />
       <About />
       <Advices />
