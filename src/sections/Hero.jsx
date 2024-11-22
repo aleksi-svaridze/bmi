@@ -1,6 +1,6 @@
 export const Hero = () => {
   return (
-    <div className="px-5 md:px-10 container lg:max-w-[1159px]">
+    <div className="px-5 md:px-10 container lg:max-w-[1159px] flex items-center">
       <div className="text-center lg:text-left">
         <h1 className="font-semibold text-5xl lg:text-[64px] leading-[110%] text-gunmetal">
           Body Mass
