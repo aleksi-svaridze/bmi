@@ -13,7 +13,9 @@ function App() {
         <Hero />
       </div>
 
-      <About />
+      <div className="lg:max-w-[1392px] mx-auto">
+        <About />
+      </div>
 
       <div className="bg-gradient-to-br from-[#D6FCFE]/0 to-[#D6E6FE]/100 lg:max-w-[1392px] mx-auto lg:rounded-[35px]">
         <Advices />
