@@ -36,7 +36,7 @@ export const Limitations = () => {
   ]);
   return (
     <>
-      <div className="flex flex-col lg:flex-row gap-y-14 lg:gap-y-0 lg:gap-x-[130px] px-5 md:px-10 container lg:max-w-[1159px] mb-4 md:mb-0">
+      <div className="flex flex-col lg:flex-row gap-y-14 lg:gap-y-0 lg:gap-x-[130px] px-5 md:px-10 container lg:max-w-[1159px] mb-4 md:mb-0 lg:mb-5">
         <div className="text-center lg:text-left lg:w-1/2">
           <h2 className="font-semibold text-[32px] lg:text-5xl leading-[110%] text-gunmetal mb-8">
             Limitations of BMI
@@ -50,24 +50,57 @@ export const Limitations = () => {
         </div>
 
         <div className="hidden lg:block w-1/2">
-          <div
-            className="w-full lg:w-[365px] h-[232px] rounded-2xl p-8"
-            style={{ boxShadow: "16px 32px 56px 0 rgba( 143, 174, 207, .25)" }}
-          >
-            card
-          </div>
+          {cardData.slice(0, 1).map((card) => (
+            <LimitationCard
+              title={card.title}
+              Icon={card.icon}
+              key={card.id}
+              body={card.body}
+            />
+          ))}
         </div>
       </div>
-      {/* Mobile */}
-      <div className="flex flex-col gap-y-4 px-5 container">
-        {cardData.map((card) => (
-          <LimitationCard
-            title={card.title}
-            Icon={card.icon}
-            key={card.id}
-            body={card.body}
-          />
-        ))}
+      {/* Mobile + Tablet*/}
+      <div className="flex lg:hidden flex-col md:flex-row md:gap-x-4 md:justify-center md:flex-wrap gap-y-4 md:gap-y-6 px-5 container">
+        {cardData &&
+          cardData.map((card) => (
+            <div className="md:w-[48%]">
+              <LimitationCard
+                title={card.title}
+                Icon={card.icon}
+                key={card.id}
+                body={card.body}
+              />
+            </div>
+          ))}
+      </div>
+
+      <div className="hidden lg:flex gap-x-8 justify-end px-5 md:px-10 container lg:max-w-[1159px]">
+        {cardData &&
+          cardData
+            .slice(1, 3)
+            .map((card) => (
+              <LimitationCard
+                title={card.title}
+                Icon={card.icon}
+                key={card.id}
+                body={card.body}
+              />
+            ))}
+      </div>
+
+      <div className="hidden lg:flex gap-x-8 justify-center px-5 md:px-10 container lg:max-w-[1159px]">
+        {cardData &&
+          cardData
+            .slice(3, 5)
+            .map((card) => (
+              <LimitationCard
+                title={card.title}
+                Icon={card.icon}
+                key={card.id}
+                body={card.body}
+              />
+            ))}
       </div>
     </>
   );
