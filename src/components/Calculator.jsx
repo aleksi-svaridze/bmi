@@ -2,7 +2,7 @@ import ImperialCalculator from "./ImperialCalculator";
 import MetricCalculator from "./MetricCalculator";
 
 const Calculator = () => {
-  let bmiOutputResult = "metric";
+  let bmiOutputResult = "imperial";
 
   console.log(bmiOutputResult);
 
