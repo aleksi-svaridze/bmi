@@ -74,7 +74,7 @@ export const Limitations = () => {
             </div>
           ))}
       </div>
-
+      {/* Desktop */}
       <div className="hidden lg:flex gap-x-8 justify-end px-10 container max-w-[1159px] mb-6">
         {cardData &&
           cardData

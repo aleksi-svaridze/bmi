@@ -39,20 +39,16 @@ const Calculator = () => {
         )}
       </div>
 
-      <div
-        className="mt-8 bg-blue p-8"
-        style={{
-          borderTopLeftRadius: "16px",
-          borderBottomLeftRadius: "16px",
-          borderTopRightRadius: "100px",
-          borderBottomRightRadius: "100px",
-        }}
-      >
-        {bmiOutputResult === "metric" ? (
-          <div>Metric</div>
-        ) : bmiOutputResult === "imperial" ? (
-          <div>imperial</div>
-        ) : (
+      {false && (
+        <div
+          className="mt-8 bg-blue p-8"
+          style={{
+            borderTopLeftRadius: "16px",
+            borderBottomLeftRadius: "16px",
+            borderTopRightRadius: "100px",
+            borderBottomRightRadius: "100px",
+          }}
+        >
           <div className="flex flex-col gap-y-4">
             <h2 className="text-white font-semibold text-2xl leading-[110%]">
               Wellcome
@@ -61,8 +57,8 @@ const Calculator = () => {
               Enter your height and weight and you'll see your BMI result here
             </p>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };
