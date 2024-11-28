@@ -6,7 +6,7 @@ import { Limitations } from "./sections/Limitationes";
 
 function App() {
   return (
-    <main className="lg:px-6">
+    <main className="lg:px-6 pb-24">
       <div className="lg:max-w-[1392px] mx-auto relative lg:h-[737px]">
         <div className="bg-gradient-to-br from-[#D6E6FE]/0 to-[#D6FCFE]/100 rounded-b-[35px] h-[640px] lg:h-auto lg:w-[978px] absolute top-0 left-0 right-0 lg:bottom-0 -z-10"></div>
         <Header />

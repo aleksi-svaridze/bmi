@@ -36,7 +36,7 @@ export const Limitations = () => {
   ]);
   return (
     <>
-      <div className="flex flex-col lg:flex-row gap-y-14 lg:gap-y-0 lg:gap-x-[130px] px-5 md:px-10 container lg:max-w-[1159px] mb-4 md:mb-0 lg:mb-5">
+      <div className="flex flex-col lg:flex-row gap-y-14 lg:gap-y-0 lg:gap-x-[130px] px-5 md:px-10 container lg:max-w-[1159px] mb-14 lg:mb-8">
         <div className="text-center lg:text-left lg:w-1/2">
           <h2 className="font-semibold text-[32px] lg:text-5xl leading-[110%] text-gunmetal mb-8">
             Limitations of BMI
@@ -75,7 +75,7 @@ export const Limitations = () => {
           ))}
       </div>
 
-      <div className="hidden lg:flex gap-x-8 justify-end px-5 md:px-10 container lg:max-w-[1159px]">
+      <div className="hidden lg:flex gap-x-8 justify-end px-10 container max-w-[1159px] mb-6">
         {cardData &&
           cardData
             .slice(1, 3)
@@ -89,7 +89,7 @@ export const Limitations = () => {
             ))}
       </div>
 
-      <div className="hidden lg:flex gap-x-8 justify-center px-5 md:px-10 container lg:max-w-[1159px]">
+      <div className="hidden lg:flex gap-x-8 justify-center px-10 container max-w-[1159px]">
         {cardData &&
           cardData
             .slice(3, 5)
