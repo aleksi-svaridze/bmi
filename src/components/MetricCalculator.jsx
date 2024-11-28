@@ -1,7 +1,7 @@
 const MetricCalculator = () => {
   return (
-    <div className="flex items-center gap-x-6">
-      <div className="w-1/2">
+    <div className="flex flex-col gap-y-4 md:gap-y-0 md:flex-row md:items-center gap-x-6">
+      <div className="md:w-1/2">
         <label className="text-electric-blue text-sm capitalize leading-[150%] mb-2 block">
           height
         </label>
@@ -17,7 +17,7 @@ const MetricCalculator = () => {
         </div>
       </div>
 
-      <div className="w-1/2">
+      <div className="md:w-1/2">
         <label className="text-electric-blue text-sm capitalize leading-[150%] mb-2 block">
           Weight
         </label>
