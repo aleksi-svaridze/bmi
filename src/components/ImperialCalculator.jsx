@@ -74,7 +74,18 @@ const ImperialCalculator = () => {
           borderBottomRightRadius: "100px",
         }}
       >
-        Imperial
+        <h4 className="text-base font-semibold leading-[150%] text-white">
+          Your BMI is...
+        </h4>
+        <div className="flex gap-x-28">
+          <div className="text-white text-[64px] font-semibold leading-[110%]">
+            {23.4}
+          </div>
+          <div className="text-white text-sm leading-[150%]">
+            Your BMI suggests you're a healthy weight. Your ideal weight is
+            between 63.3kgs - 85.2kgs.
+          </div>
+        </div>
       </div>
     </>
   );

@@ -64,11 +64,10 @@ export const Limitations = () => {
       <div className="flex lg:hidden flex-col md:flex-row md:gap-x-4 md:justify-center md:flex-wrap gap-y-4 md:gap-y-6 px-5 container">
         {cardData &&
           cardData.map((card) => (
-            <div className="md:w-[48%]">
+            <div className="md:w-[48%]" key={card.id}>
               <LimitationCard
                 title={card.title}
                 Icon={card.icon}
-                key={card.id}
                 body={card.body}
               />
             </div>

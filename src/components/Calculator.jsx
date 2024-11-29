@@ -1,10 +1,14 @@
+import { useState } from "react";
 import ImperialCalculator from "./ImperialCalculator";
 import MetricCalculator from "./MetricCalculator";
 
 const Calculator = () => {
-  let bmiOutputResult = "imperial";
+  let [radioButtonValue, setRadioButtonValue] = useState("");
+  const handleRadioValue = (e) => {
+    setRadioButtonValue(e.target.value);
+  };
 
-  console.log(bmiOutputResult);
+  console.log(radioButtonValue);
 
   return (
     <div
@@ -17,29 +21,37 @@ const Calculator = () => {
 
       <div className="flex items-center my-8 gap-x-6">
         <label className="flex items-center gap-x-4 w-1/2 cursor-pointer">
-          <input type="radio" name="bmi" value="metric" className="size-8" />
+          <input
+            type="radio"
+            name="bmi"
+            value="metric"
+            className="size-8"
+            onChange={(e) => handleRadioValue(e)}
+          />
           <span className="text-gunmetal text-base font-semibold capitalize leading-[150%]">
             metric
           </span>
         </label>
 
         <label className="flex items-center gap-x-4 w-1/2 cursor-pointer">
-          <input type="radio" name="bmi" value="imperial" className="size-8" />
+          <input
+            type="radio"
+            name="bmi"
+            value="imperial"
+            className="size-8"
+            onChange={(e) => handleRadioValue(e)}
+          />
           <span className="text-gunmetal text-base font-semibold capitalize leading-[150%]">
             imperial
           </span>
         </label>
       </div>
 
-      <div>
-        {bmiOutputResult === "metric" ? (
-          <MetricCalculator />
-        ) : (
-          <ImperialCalculator />
-        )}
-      </div>
+      {radioButtonValue === "metric" && <MetricCalculator />}
 
-      {false && (
+      {radioButtonValue === "imperial" && <ImperialCalculator />}
+
+      {radioButtonValue !== "metric" && radioButtonValue !== "imperial" && (
         <div
           className="mt-8 bg-blue p-8"
           style={{
