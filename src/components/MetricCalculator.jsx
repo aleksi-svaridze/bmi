@@ -1,21 +1,34 @@
 import { useState } from "react";
 
 const MetricCalculator = () => {
-  const [metricValue, setMetricValue] = useState({ cm: 0, kg: 0 });
-  const [result, setResult] = useState();
+  let [result, setResult] = useState();
+  const [height, setHeight] = useState(0);
+  const [weight, setWeight] = useState(0);
+  const [category, setCategory] = useState("");
 
-  console.log(metricValue);
+  const handleResult = (e) => {
+    e.preventDefault();
+    let heightInMeters = height / 100;
+    result = (weight / heightInMeters ** 2).toFixed(1);
+    setResult(result);
 
-  const handleResult = (metricValue) => {
-    let result = (Number(metricValue.kg) / Number(metricValue.cm ** 2)) * 10000;
-    setResult(result.toFixed(1));
+    if (result <= 18.5) {
+      setCategory("under weight");
+    } else if (result > 18.5 && result <= 24.9) {
+      setCategory("Normal");
+    } else if (result > 24.9 && result <= 29.9) {
+      setCategory("Overweight");
+    } else if (result > 29.9 && result <= 39.9) {
+      setCategory("Obese");
+    } else if (result > 40) {
+      setCategory("Morbidly obese");
+    } else {
+      setResult(false);
+    }
   };
   return (
     <>
-      <form
-        onSubmit={handleResult}
-        className="flex flex-col gap-y-4 md:gap-y-0 md:flex-row md:items-center gap-x-6"
-      >
+      <form className="flex flex-col gap-y-4 md:gap-y-0 md:flex-row md:items-center gap-x-6">
         <div className="md:w-1/2">
           <label className="text-electric-blue text-sm capitalize leading-[150%] mb-2 block">
             height
@@ -25,10 +38,8 @@ const MetricCalculator = () => {
               type="number"
               className="absolute w-full h-full focus:outline-none pl-6 pr-20 text-gunmetal text-2xl leading-[110%] font-semibold"
               min="0"
-              velue={metricValue.cm}
-              onChange={(e) =>
-                setMetricValue({ cm: e.target.value, kg: metricValue.kg })
-              }
+              velue={height}
+              onChange={(e) => setHeight(e.target.value)}
             />
             <span className="text-blue text-2xl leading-none font-semibold absolute top-1/2 -translate-y-[14px] right-7">
               cm
@@ -45,20 +56,20 @@ const MetricCalculator = () => {
               type="number"
               className="absolute w-full h-full focus:outline-none pl-6 pr-20 text-gunmetal text-2xl leading-[110%] font-semibold"
               min="0"
-              velue={metricValue.kg}
-              onChange={(e) =>
-                handleResult({ cm: metricValue.cm, kg: e.target.value })
-              }
+              velue={weight}
+              onChange={(e) => setWeight(e.target.value)}
             />
             <span className="text-blue text-2xl leading-none font-semibold absolute top-1/2 -translate-y-[14px] right-7">
               kg
             </span>
           </div>
         </div>
+
+        <button onClick={(e) => handleResult(e)}>calculate</button>
       </form>
 
       <div
-        className="mt-8 bg-blue p-8"
+        className="mt-8 bg-blue p-8 overflow-hidden"
         style={{
           borderTopLeftRadius: "16px",
           borderBottomLeftRadius: "16px",
@@ -66,18 +77,31 @@ const MetricCalculator = () => {
           borderBottomRightRadius: "100px",
         }}
       >
-        <h4 className="text-base font-semibold leading-[150%] text-white">
-          Your BMI is...
-        </h4>
-        <div className="flex gap-x-28">
-          <div className="text-white text-[64px] font-semibold leading-[110%]">
-            {result}
+        {" "}
+        {result ? (
+          <>
+            <h4 className="text-base font-semibold leading-[150%] text-white">
+              Your BMI is...
+            </h4>
+            <div className="flex gap-x-28">
+              <div className="text-white text-[64px] font-semibold leading-[110%]">
+                {result}
+              </div>
+              <div className="text-white text-sm leading-[150%]">
+                {category}
+              </div>
+            </div>
+          </>
+        ) : (
+          <div className="flex flex-col gap-y-4">
+            <h2 className="text-white font-semibold text-2xl leading-[110%]">
+              Wellcome
+            </h2>
+            <p className="text-white text-sm leading-[150%]">
+              Enter your height and weight and you'll see your BMI result here
+            </p>
           </div>
-          <div className="text-white text-sm leading-[150%]">
-            Your BMI suggests you're a healthy weight. Your ideal weight is
-            between 63.3kgs - 85.2kgs.
-          </div>
-        </div>
+        )}
       </div>
     </>
   );
