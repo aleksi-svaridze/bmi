@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useWindowSize } from "usehooks-ts";
 
 const MetricCalculator = () => {
+  const { width } = useWindowSize();
   let [result, setResult] = useState();
   const [height, setHeight] = useState(0);
   const [weight, setWeight] = useState(0);
@@ -26,6 +28,8 @@ const MetricCalculator = () => {
       setResult(false);
     }
   };
+
+  console.log(width);
   return (
     <>
       <form className="flex flex-col gap-y-4 md:gap-y-0 md:flex-row md:items-center gap-x-6">
@@ -73,17 +77,16 @@ const MetricCalculator = () => {
         style={{
           borderTopLeftRadius: "16px",
           borderBottomLeftRadius: "16px",
-          borderTopRightRadius: "100px",
-          borderBottomRightRadius: "100px",
+          borderTopRightRadius: width >= 768 ? "100px" : "16px",
+          borderBottomRightRadius: width >= 768 ? "100px" : "16px",
         }}
       >
-        {" "}
         {result ? (
           <>
             <h4 className="text-base font-semibold leading-[150%] text-white">
               Your BMI is...
             </h4>
-            <div className="flex gap-x-28">
+            <div className="flex flex-col gap-y-6 md:flex-row gap-x-28">
               <div className="text-white text-[64px] font-semibold leading-[110%]">
                 {result}
               </div>

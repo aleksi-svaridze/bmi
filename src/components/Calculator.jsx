@@ -47,9 +47,11 @@ const Calculator = () => {
         </label>
       </div>
 
-      {radioButtonValue === "metric" && <MetricCalculator />}
-
-      {radioButtonValue === "imperial" && <ImperialCalculator />}
+      {radioButtonValue === "imperial" ? (
+        <ImperialCalculator />
+      ) : (
+        <MetricCalculator />
+      )}
     </div>
   );
 };
