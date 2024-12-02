@@ -4,11 +4,12 @@ import MetricCalculator from "./MetricCalculator";
 
 const Calculator = () => {
   let [radioButtonValue, setRadioButtonValue] = useState("metric");
+  let [checked, setChecked] = useState(true);
+
   const handleRadioValue = (e) => {
     setRadioButtonValue(e.target.value);
+    setChecked(!checked);
   };
-
-  console.log(radioButtonValue);
 
   return (
     <div
@@ -26,6 +27,7 @@ const Calculator = () => {
             name="bmi"
             value="metric"
             className="size-8"
+            checked={checked}
             onChange={(e) => handleRadioValue(e)}
           />
           <span className="text-gunmetal text-base font-semibold capitalize leading-[150%]">
@@ -39,6 +41,7 @@ const Calculator = () => {
             name="bmi"
             value="imperial"
             className="size-8"
+            checked={!checked}
             onChange={(e) => handleRadioValue(e)}
           />
           <span className="text-gunmetal text-base font-semibold capitalize leading-[150%]">
@@ -47,10 +50,10 @@ const Calculator = () => {
         </label>
       </div>
 
-      {radioButtonValue === "imperial" ? (
-        <ImperialCalculator />
-      ) : (
+      {radioButtonValue === "metric" ? (
         <MetricCalculator />
+      ) : (
+        <ImperialCalculator />
       )}
     </div>
   );

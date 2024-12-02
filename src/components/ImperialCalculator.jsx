@@ -1,4 +1,12 @@
+import { useState } from "react";
+import { useWindowSize } from "usehooks-ts";
+
 const ImperialCalculator = () => {
+  const { width } = useWindowSize();
+  let [result] = useState();
+  const [category] = useState("");
+
+  console.log("Imperial", width);
   return (
     <>
       <div className="">
@@ -66,26 +74,38 @@ const ImperialCalculator = () => {
       </div>
 
       <div
-        className="mt-8 bg-blue p-8"
+        className="mt-8 bg-blue p-8 overflow-hidden"
         style={{
           borderTopLeftRadius: "16px",
           borderBottomLeftRadius: "16px",
-          borderTopRightRadius: "100px",
-          borderBottomRightRadius: "100px",
+          borderTopRightRadius: width >= 768 ? "100px" : "16px",
+          borderBottomRightRadius: width >= 768 ? "100px" : "16px",
         }}
       >
-        <h4 className="text-base font-semibold leading-[150%] text-white">
-          Your BMI is...
-        </h4>
-        <div className="flex gap-x-28">
-          <div className="text-white text-[64px] font-semibold leading-[110%]">
-            {23.4}
+        {result ? (
+          <>
+            <h4 className="text-base font-semibold leading-[150%] text-white">
+              Your BMI is...
+            </h4>
+            <div className="flex flex-col gap-y-6 md:flex-row gap-x-28">
+              <div className="text-white text-[64px] font-semibold leading-[110%]">
+                {result}
+              </div>
+              <div className="text-white text-sm leading-[150%]">
+                {category}
+              </div>
+            </div>
+          </>
+        ) : (
+          <div className="flex flex-col gap-y-4">
+            <h2 className="text-white font-semibold text-2xl leading-[110%]">
+              Wellcome
+            </h2>
+            <p className="text-white text-sm leading-[150%]">
+              Enter your height and weight and you'll see your BMI result here
+            </p>
           </div>
-          <div className="text-white text-sm leading-[150%]">
-            Your BMI suggests you're a healthy weight. Your ideal weight is
-            between 63.3kgs - 85.2kgs.
-          </div>
-        </div>
+        )}
       </div>
     </>
   );
