@@ -27,6 +27,10 @@ const MetricCalculator = () => {
     } else {
       setResult(false);
     }
+
+    if (e.key === "Enter") {
+      document.getElementById("myForm").submit(); // Programmatically submit the form
+    }
   };
 
   console.log("Metric", width);
