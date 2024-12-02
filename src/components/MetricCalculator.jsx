@@ -4,12 +4,20 @@ import { useWindowSize } from "usehooks-ts";
 const MetricCalculator = () => {
   const { width } = useWindowSize();
   let [result, setResult] = useState();
-  const [height, setHeight] = useState(0);
-  const [weight, setWeight] = useState(0);
+  const [height, setHeight] = useState("");
+  const [weight, setWeight] = useState("");
   const [category, setCategory] = useState("");
 
+  const handleKeyDown = (e) => {
+    console.log("handleKeyDown");
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleResult();
+    }
+  };
+
   const handleResult = (e) => {
-    e.preventDefault();
+    console.log("handleResult");
     let heightInMeters = height / 100;
     result = (weight / heightInMeters ** 2).toFixed(1);
     setResult(result);
@@ -27,18 +35,13 @@ const MetricCalculator = () => {
     } else {
       setResult(false);
     }
-
-    if (e.key === "Enter") {
-      document.getElementById("myForm").submit(); // Programmatically submit the form
-    }
   };
 
   console.log("Metric", width);
   return (
     <>
       <form
-        id="myForm"
-        onSubmit={(e) => handleResult(e)}
+        // onSubmit={(e) => handleResult(e)}
         className="flex flex-col gap-y-4 md:gap-y-0 md:flex-row md:items-center gap-x-6"
       >
         <div className="md:w-1/2">
@@ -50,8 +53,9 @@ const MetricCalculator = () => {
               type="number"
               className="absolute w-full h-full focus:outline-none pl-6 pr-20 text-gunmetal text-2xl leading-[110%] font-semibold"
               min="0"
-              velue={height}
-              onKeyDown={(e) => setHeight(e.target.value)}
+              value={height}
+              onChange={(e) => setHeight(e.target.value)}
+              onKeyDown={handleKeyDown}
             />
             <span className="text-blue text-2xl leading-none font-semibold absolute top-1/2 -translate-y-[14px] right-7">
               cm
@@ -68,8 +72,9 @@ const MetricCalculator = () => {
               type="number"
               className="absolute w-full h-full focus:outline-none pl-6 pr-20 text-gunmetal text-2xl leading-[110%] font-semibold"
               min="0"
-              velue={weight}
-              onKeyDown={(e) => setWeight(e.target.value)}
+              value={weight}
+              onChange={(e) => setWeight(e.target.value)}
+              onKeyDown={handleKeyDown}
             />
             <span className="text-blue text-2xl leading-none font-semibold absolute top-1/2 -translate-y-[14px] right-7">
               kg
@@ -77,9 +82,9 @@ const MetricCalculator = () => {
           </div>
         </div>
 
-        <button className="hidden" type="submit">
+        {/* <button className="hidden" type="submit">
           calculate
-        </button>
+        </button> */}
       </form>
 
       <div
