@@ -51,7 +51,7 @@ const MetricCalculator = () => {
               className="absolute w-full h-full focus:outline-none pl-6 pr-20 text-gunmetal text-2xl leading-[110%] font-semibold"
               min="0"
               velue={height}
-              onChange={(e) => setHeight(e.target.value)}
+              onKeyDown={(e) => setHeight(e.target.value)}
             />
             <span className="text-blue text-2xl leading-none font-semibold absolute top-1/2 -translate-y-[14px] right-7">
               cm
@@ -69,7 +69,7 @@ const MetricCalculator = () => {
               className="absolute w-full h-full focus:outline-none pl-6 pr-20 text-gunmetal text-2xl leading-[110%] font-semibold"
               min="0"
               velue={weight}
-              onChange={(e) => setWeight(e.target.value)}
+              onKeyDown={(e) => setWeight(e.target.value)}
             />
             <span className="text-blue text-2xl leading-none font-semibold absolute top-1/2 -translate-y-[14px] right-7">
               kg
