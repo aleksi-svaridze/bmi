@@ -72,7 +72,9 @@ const MetricCalculator = () => {
           </div>
         </div>
 
-        <button className="hidden">calculate</button>
+        <button className="hidden" type="submit">
+          calculate
+        </button>
       </form>
 
       <div
