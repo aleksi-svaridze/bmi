@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Gender, Age, Muscle, Pregnancy, Race } from "../images/Icons";
 import LimitationCard from "../components/LimitationCard";
+import BottomLine from "../images/bottom-line.png";
+
 export const Limitations = () => {
   const [cardData] = useState([
     {
@@ -74,7 +76,12 @@ export const Limitations = () => {
           ))}
       </div>
       {/* Desktop */}
-      <div className="hidden lg:flex gap-x-8 justify-end px-10 container max-w-[1159px] mb-6">
+      <div className="hidden lg:flex gap-x-8 justify-end px-10 container max-w-[1159px] mb-6 relative">
+        <img
+          src={BottomLine}
+          alt=""
+          className="absolute hidden lg:block left-32 -top-6 w-[94px] h-[122px]"
+        />
         {cardData &&
           cardData
             .slice(1, 3)

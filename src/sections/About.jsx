@@ -1,8 +1,14 @@
 import PersonImage from "../images/about/person.png";
+import TopLine from "../images/top_line.png";
 
 export const About = () => {
   return (
-    <div className="my-[70px] flex flex-col md:flex-row items-center md:gap-x-[74px] lg:gap-x-[130px] gap-y-12 md:gap-y-0 lg:max-w-[1159px] lg:container">
+    <div className="flex flex-col md:flex-row items-center md:gap-x-[74px] lg:gap-x-[130px] gap-y-12 md:gap-y-0 lg:max-w-[1159px] lg:container relative">
+      <img
+        src={TopLine}
+        alt=""
+        className="hidden lg:block absolute right-16 -top-[56px] h-[200px] w-[85px]"
+      />
       <div className="h-[355px] lg:h-[533px] lg:rounded-b-[32px] overflow-hidden relative w-full">
         <img
           src={PersonImage}

@@ -13,7 +13,7 @@ function App() {
         <Hero />
       </div>
 
-      <div className="lg:max-w-[1392px] mx-auto">
+      <div className="py-[70px] lg:max-w-[1392px] mx-auto">
         <About />
       </div>
 
