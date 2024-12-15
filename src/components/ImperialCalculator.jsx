@@ -3,8 +3,36 @@ import { useWindowSize } from "usehooks-ts";
 
 const ImperialCalculator = () => {
   const { width } = useWindowSize();
-  let [result] = useState();
-  const [category] = useState("");
+  let [result, setResult] = useState();
+  const [pounds, setPounds] = useState("");
+  const [inches, setInches] = useState("");
+  const [category, setCategory] = useState("");
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleResult();
+    }
+  };
+
+  const handleResult = () => {
+    result = (pounds / (inches * inches)) * 703;
+    setResult(result.toFixed(2));
+
+    if (result <= 18.5) {
+      setCategory("under weight");
+    } else if (result > 18.5 && result <= 24.9) {
+      setCategory("Normal");
+    } else if (result > 24.9 && result <= 29.9) {
+      setCategory("Overweight");
+    } else if (result > 29.9 && result <= 39.9) {
+      setCategory("Obese");
+    } else if (result > 40) {
+      setCategory("Morbidly obese");
+    } else {
+      setResult(false);
+    }
+  };
 
   console.log("Imperial", width);
   return (
@@ -33,6 +61,9 @@ const ImperialCalculator = () => {
                 type="number"
                 className="absolute w-full h-full focus:outline-none pl-5 md:pl-6 pr-12 md:pr-20 text-gunmetal text-2xl leading-[110%] font-semibold"
                 min="0"
+                value={inches}
+                onChange={(e) => setInches(e.target.value)}
+                onKeyDown={handleKeyDown}
               />
               <span className="text-blue text-2xl leading-none font-semibold absolute top-1/2 -translate-y-[14px] right-5 md:right-7">
                 in
@@ -64,6 +95,9 @@ const ImperialCalculator = () => {
                 type="number"
                 className="absolute w-full h-full focus:outline-none pl-5 md:pl-6 pr-12 md:pr-20 text-gunmetal text-2xl leading-[110%] font-semibold"
                 min="0"
+                value={pounds}
+                onChange={(e) => setPounds(e.target.value)}
+                onKeyDown={handleKeyDown}
               />
               <span className="text-blue text-2xl leading-none font-semibold absolute top-1/2 -translate-y-[14px] right-5 md:right-7">
                 lbs
