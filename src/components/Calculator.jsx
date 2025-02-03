@@ -13,7 +13,7 @@ const Calculator = () => {
 
   return (
     <div
-      className="bg-white w-full lg:w-[564px] shrink-0 rounded-2xl p-8"
+      className="bg-white w-full xl:w-[564px] shrink-0 rounded-2xl p-8"
       style={{ boxShadow: "16px 32px 56px 0 rgba( 143, 174, 207, 0.25)" }}
     >
       <h4 className="text-gunmetal text-2xl font-semibold leading-[110%]">

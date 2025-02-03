@@ -35,7 +35,6 @@ const MetricCalculator = () => {
     }
   };
 
-  console.log("Metric", width);
   return (
     <>
       <form className="flex flex-col gap-y-4 md:gap-y-0 md:flex-row md:items-center gap-x-6">

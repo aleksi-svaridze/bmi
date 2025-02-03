@@ -3,7 +3,7 @@ import TopLine from "../images/top_line.png";
 
 export const About = () => {
   return (
-    <div className="flex flex-col md:flex-row items-center md:gap-x-[74px] lg:gap-x-[130px] gap-y-12 md:gap-y-0 lg:max-w-[1159px] lg:container relative">
+    <div className="flex flex-col md:flex-row items-center md:gap-x-[74px] lg:gap-x-[130px] gap-y-12 md:gap-y-0 lg:max-w-[1160px] lg:container relative">
       <img
         src={TopLine}
         alt=""

@@ -33,7 +33,7 @@ export const Advices = () => {
     },
   ]);
   return (
-    <div className="flex flex-col lg:flex-row gap-y-10 lg:gap-y-0 lg:gap-x-6 my-[76px] py-14 md:py-[60px] lg:py-[72px] px-5 md:px-10 container lg:max-w-[1159px]">
+    <div className="flex flex-col lg:flex-row gap-y-10 lg:gap-y-0 lg:gap-x-6 my-[76px] py-14 md:py-[60px] lg:py-[72px] px-5 md:px-10 lg:px-0 container lg:max-w-[1160px]">
       {data.map((item) => (
         <AdviceCard
           key={item.id}

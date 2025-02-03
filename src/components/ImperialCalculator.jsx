@@ -34,7 +34,6 @@ const ImperialCalculator = () => {
     }
   };
 
-  console.log("Imperial", width);
   return (
     <>
       <div className="">
