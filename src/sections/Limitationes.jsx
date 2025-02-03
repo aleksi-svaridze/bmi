@@ -95,7 +95,7 @@ export const Limitations = () => {
             ))}
       </div>
 
-      <div className="hidden lg:flex gap-x-8 justify-center px-10 container max-w-[1159px]">
+      <div className="hidden lg:flex gap-x-8 relative justify-center px-10 container max-w-[1159px]">
         {cardData &&
           cardData
             .slice(3, 5)
