@@ -26,7 +26,6 @@ const Calculator = () => {
             type="radio"
             name="bmi"
             value="metric"
-            className="size-8"
             checked={checked}
             onChange={(e) => handleRadioValue(e)}
           />
@@ -40,7 +39,6 @@ const Calculator = () => {
             type="radio"
             name="bmi"
             value="imperial"
-            className="size-8"
             checked={!checked}
             onChange={(e) => handleRadioValue(e)}
           />
